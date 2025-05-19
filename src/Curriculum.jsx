@@ -51,7 +51,7 @@ function Curriculum() {
           <img
             src="https://www.yuqo.com/wp-content/uploads/2017/05/giphy-downsized-2.gif"
             alt="Funny GIF"
-            className="mt-4 mx-auto rounded-lg shadow-lg"
+            className="mt-4 mx-auto rounded-lg shadow-lg w-full max-w-md"
           />
         </div>
       </main>
