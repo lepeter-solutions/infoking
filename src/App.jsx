@@ -5,6 +5,7 @@ import Section1 from './section1.jsx';
 import Section2 from './Section2.jsx';
 import Admin from './Admin.jsx';
 import MainLayout from './MainLayout.jsx'; // Import MainLayout
+import TopicLister from './TopicLister.jsx'; // Import TopicLister
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/section1" element={<Section1 />} />
       <Route path="/section2" element={<Section2 />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/:category/:topic" element={<TopicLister />} /> {/* Dynamic route */}
     </Routes>
   );
 }
