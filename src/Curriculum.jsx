@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Utility function to slugify strings
+const slugify = (text) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, ''); // Remove all non-word characters
+};
+
 function Curriculum() {
   const [categories, setCategories] = useState([]);
   const [curriculumTopics, setCurriculumTopics] = useState([]);
@@ -114,7 +124,9 @@ function Curriculum() {
                     <p className="text-gray-700">Number of Videos: {group.count}</p>
                     <button
                       className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                      onClick={() => navigate(`/${selectedCategory}/${group.topicName}`)} // Navigate to category/topic
+                      onClick={() =>
+                        navigate(`/${slugify(selectedCategory)}/${slugify(group.topicName)}`)
+                      } // Navigate to slugified category/topic
                     >
                       Learn it
                     </button>
