@@ -13,6 +13,8 @@ function Admin() {
     classPath: '',
   });
 
+  const [deleteId, setDeleteId] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -44,6 +46,30 @@ function Admin() {
         });
       } else {
         alert('Failed to add data. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if (!deleteId) {
+      alert('Please provide an ID to delete.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://retoolapi.dev/yHbocP/infoking/${deleteId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        alert(`Data with ID ${deleteId} successfully deleted!`);
+        setDeleteId('');
+      } else {
+        alert('Failed to delete data. Please check the ID and try again.');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -175,6 +201,29 @@ function Admin() {
             className="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
           >
             Submit
+          </button>
+        </form>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-red-600 mt-10">
+          Remove Data by ID
+        </h1>
+        <form className="mt-6 max-w-2xl mx-auto space-y-4" onSubmit={handleDelete}>
+          <div>
+            <label className="block font-bold text-red-700">ID to Delete</label>
+            <input
+              type="text"
+              value={deleteId}
+              onChange={(e) => setDeleteId(e.target.value)}
+              className="w-full p-2 border rounded text-red-700"
+              placeholder="Enter ID"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-red-600 text-white p-2 rounded hover:bg-red-700"
+          >
+            Delete
           </button>
         </form>
       </main>
