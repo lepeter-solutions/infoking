@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Curriculum() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch categories from the API
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
+        const data = await response.json();
+
+        // Extract unique categories
+        const uniqueCategories = [...new Set(data.map((item) => item.category))];
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-blue-600 text-white p-4">
@@ -22,16 +42,20 @@ function Curriculum() {
           <div className="p-4">
             <h2 className="text-xl font-bold">Navigation</h2>
             <ul className="mt-4 space-y-2">
-              <li>
-                <Link to="/section1" className="block p-2 hover:bg-gray-700 rounded">
-                  Section 1
-                </Link>
-              </li>
-              <li>
-                <Link to="/section2" className="block p-2 hover:bg-gray-700 rounded">
-                  Section 2
-                </Link>
-              </li>
+              {categories.length > 0 ? (
+                categories.map((category, index) => (
+                  <li key={index}>
+                    <Link
+                      to={`/${category.toLowerCase()}`}
+                      className="block p-2 hover:bg-gray-700 rounded"
+                    >
+                      {category}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-gray-400">Loading categories...</li>
+              )}
               <li>
                 <Link to="/" className="block p-2 hover:bg-gray-700 rounded">
                   Back to Home
