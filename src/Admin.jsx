@@ -60,31 +60,39 @@ function Admin() {
       </header>
 
       <main className="flex-grow container mx-auto mt-6 md:mt-10 p-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-600">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-purple-600">
           Add New Data
         </h1>
         <form className="mt-6 max-w-2xl mx-auto space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block font-bold">Category</label>
-            <input
-              type="text"
+            <select
               name="category"
               value={formData.category}
               onChange={handleChange}
               className="w-full p-2 border rounded"
               required
-            />
+            >
+              <option value="">Select a category</option>
+              <option value="Excel">Excel</option>
+              <option value="Word">Word</option>
+              <option value="PowerPoint">PowerPoint</option>
+            </select>
           </div>
           <div>
             <label className="block font-bold">Topic</label>
-            <input
-              type="text"
+            <select
               name="topic"
               value={formData.topic}
               onChange={handleChange}
               className="w-full p-2 border rounded"
               required
-            />
+            >
+              <option value="">Select a topic</option>
+              <option value="SUM Function">SUM Function</option>
+              <option value="VLOOKUP">VLOOKUP</option>
+              <option value="Pivot Tables">Pivot Tables</option>
+            </select>
           </div>
           <div>
             <label className="block font-bold">Class Number</label>
@@ -164,7 +172,7 @@ function Admin() {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            className="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
           >
             Submit
           </button>
