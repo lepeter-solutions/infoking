@@ -1,8 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Curriculum from './Curriculum.jsx';
-import Section1 from './section1.jsx';
-import Section2 from './Section2.jsx';
 import Admin from './Admin.jsx';
 import MainLayout from './MainLayout.jsx'; // Import MainLayout
 import TopicLister from './TopicLister.jsx'; // Import TopicLister
