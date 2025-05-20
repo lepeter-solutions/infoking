@@ -10,8 +10,6 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />} />
       <Route path="/curriculum" element={<Curriculum />} />
-      <Route path="/section1" element={<Section1 />} />
-      <Route path="/section2" element={<Section2 />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/:category/:topic" element={<TopicLister />} /> {/* Dynamic route */}
     </Routes>
