@@ -65,12 +65,12 @@ function Admin() {
         </h1>
         <form className="mt-6 max-w-2xl mx-auto space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block font-bold">Category</label>
+            <label className="block font-bold text-blue-700">Category</label>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             >
               <option value="">Select a category</option>
@@ -80,12 +80,12 @@ function Admin() {
             </select>
           </div>
           <div>
-            <label className="block font-bold">Topic</label>
+            <label className="block font-bold text-blue-700">Topic</label>
             <select
               name="topic"
               value={formData.topic}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             >
               <option value="">Select a topic</option>
@@ -95,78 +95,78 @@ function Admin() {
             </select>
           </div>
           <div>
-            <label className="block font-bold">Class Number</label>
+            <label className="block font-bold text-blue-700">Class Number</label>
             <input
               type="text"
               name="classNumber"
               value={formData.classNumber}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
           <div>
-            <label className="block font-bold">Video Topic</label>
+            <label className="block font-bold text-blue-700">Video Topic</label>
             <input
               type="text"
               name="videoTopic"
               value={formData.videoTopic}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
           <div>
-            <label className="block font-bold">Video Upload Date</label>
+            <label className="block font-bold text-blue-700">Video Upload Date</label>
             <input
               type="date"
               name="videoUploadDate"
               value={formData.videoUploadDate}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
           <div>
-            <label className="block font-bold">Video Title</label>
+            <label className="block font-bold text-blue-700">Video Title</label>
             <input
               type="text"
               name="videoTitle"
               value={formData.videoTitle}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
           <div>
-            <label className="block font-bold">Video Description</label>
+            <label className="block font-bold text-blue-700">Video Description</label>
             <textarea
               name="videoDescription"
               value={formData.videoDescription}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             ></textarea>
           </div>
           <div>
-            <label className="block font-bold">Video YouTube URL</label>
+            <label className="block font-bold text-blue-700">Video YouTube URL</label>
             <input
               type="url"
               name="videoYoutubeUrl"
               value={formData.videoYoutubeUrl}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
           <div>
-            <label className="block font-bold">Class Path</label>
+            <label className="block font-bold text-blue-700">Class Path</label>
             <input
               type="text"
               name="classPath"
               value={formData.classPath}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-blue-700"
               required
             />
           </div>
