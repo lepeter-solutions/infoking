@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Curriculum() {
   const [categories, setCategories] = useState([]);
+  const [curriculumTopics, setCurriculumTopics] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null); // Manage selected category locally
+  const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
     // Fetch categories from the API
@@ -22,6 +25,37 @@ function Curriculum() {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    // Fetch curriculum topics for the selected category
+    const fetchCurriculumTopics = async () => {
+      try {
+        const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
+        const data = await response.json();
+
+        // Filter topics by the selected category
+        const filteredTopics = data.filter((item) =>
+          item.category.toLowerCase() === selectedCategory?.toLowerCase()
+        );
+        setCurriculumTopics(filteredTopics);
+      } catch (error) {
+        console.error('Error fetching curriculum topics:', error);
+      }
+    };
+
+    if (selectedCategory) {
+      fetchCurriculumTopics();
+    }
+  }, [selectedCategory]);
+
+  // Group topics by their name and count the number of videos
+  const groupedTopics = curriculumTopics.reduce((acc, topic) => {
+    if (!acc[topic.topic]) {
+      acc[topic.topic] = { count: 0, topicName: topic.topic };
+    }
+    acc[topic.topic].count += 1;
+    return acc;
+  }, {});
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-blue-600 text-white p-4">
@@ -29,9 +63,9 @@ function Curriculum() {
           <h1 className="text-2xl font-bold">Infoking</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><Link to="/" className="hover:underline">Home</Link></li>
-              <li><Link to="/about" className="hover:underline">About</Link></li>
-              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li><a href="/about" className="hover:underline">About</a></li>
+              <li><a href="/contact" className="hover:underline">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -45,21 +79,23 @@ function Curriculum() {
               {categories.length > 0 ? (
                 categories.map((category, index) => (
                   <li key={index}>
-                    <Link
-                      to={`/${category.toLowerCase()}`}
-                      className="block p-2 hover:bg-gray-700 rounded"
+                    <button
+                      onClick={() => setSelectedCategory(category)} // Update selected category
+                      className={`block w-full text-left p-2 hover:bg-gray-700 rounded ${
+                        selectedCategory === category ? 'bg-gray-700' : ''
+                      }`}
                     >
                       {category}
-                    </Link>
+                    </button>
                   </li>
                 ))
               ) : (
                 <li className="text-gray-400">Loading categories...</li>
               )}
               <li>
-                <Link to="/" className="block p-2 hover:bg-gray-700 rounded">
+                <a href="/" className="block p-2 hover:bg-gray-700 rounded">
                   Back to Home
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -67,16 +103,32 @@ function Curriculum() {
 
         <div className="flex-grow container mx-auto mt-6 md:mt-10 p-4">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-600">
-            Curriculum
+            {selectedCategory ? `${selectedCategory} Curriculum` : 'Curriculum'}
           </h1>
-          <p className="mt-4 text-base md:text-lg text-gray-700 text-center">
-            Welcome to the Curriculum page of Infoking. Here you will find all the resources you need to prepare for your IT studies.
-          </p>
-          <img
-            src="https://www.yuqo.com/wp-content/uploads/2017/05/giphy-downsized-2.gif"
-            alt="Funny GIF"
-            className="mt-4 mx-auto rounded-lg shadow-lg w-full max-w-md"
-          />
+          {selectedCategory ? (
+            Object.keys(groupedTopics).length > 0 ? (
+              <ul className="mt-6 space-y-4">
+                {Object.values(groupedTopics).map((group, index) => (
+                  <li key={index} className="p-4 border rounded shadow">
+                    <h2 className="text-xl font-bold text-blue-600">{group.topicName}</h2>
+                    <p className="text-gray-700">Number of Videos: {group.count}</p>
+                    <button
+                      className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                      onClick={() => navigate(`/${selectedCategory}/${group.topicName}`)} // Navigate to category/topic
+                    >
+                      Learn it
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 text-center text-gray-500">No topics available for this category.</p>
+            )
+          ) : (
+            <p className="mt-4 text-center text-gray-500">
+              Select a category from the navigation to view its curriculum.
+            </p>
+          )}
         </div>
       </main>
 
