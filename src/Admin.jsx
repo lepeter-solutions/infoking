@@ -118,6 +118,7 @@ function Admin() {
               <option value="SUM Function">SUM Function</option>
               <option value="VLOOKUP">VLOOKUP</option>
               <option value="Pivot Tables">Pivot Tables</option>
+              <option value="DATE Function">DATE Function</option> {/* New topic added */}
             </select>
           </div>
           <div>
