@@ -1,21 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-blue-600 text-white p-4">
-        <div className="w-full mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Infoking</h1>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><a href="#home" className="hover:underline">Home</a></li>
-              <li><a href="#about" className="hover:underline">About</a></li>
-              <li><a href="#contact" className="hover:underline">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-grow container mx-auto mt-10 p-4 flex flex-col items-center">
         <section id="home" className="text-center max-w-2xl">
@@ -44,9 +35,7 @@ function MainLayout() {
         </section>
       </main>
       
-      <footer className="bg-gray-800 text-white text-center p-4 mt-16">
-        <p>&copy; 2023 Infoking. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
