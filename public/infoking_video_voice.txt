@@ -1,0 +1,133 @@
+Using SUM, MAX, MIN, AVERAGE in Excel is easy! Here's a quick guide to help you:
+ 
+Start typing sum and then click on the appropriate function for example SUM.
+ 
+SUM will add up the selected data for you.
+ 
+Don't try to merge text with sum, it only works with numbers.
+ 
+Hold down CTRL when you want to select your data.
+ 
+it's much easier this way.
+ 
+Now try MIN and MAX.
+ 
+MIN will show you the least number.
+ 
+do it like you did with sum.
+ 
+And MAX will be the same but is shows the highest number.
+ 
+Try a more intersting one AVERAGE, its not working with text as well.
+ 
+Try with numbers it will show obviusly the average of the selected numbers, dont forget to hold CTRL.
+
+
+
+Excel’s IF and COUNTIF functions are two of the most commonly used tools for data analysis. Here's a simple explanation of what they do and how to use them.
+ 
+Start writing if, first you have to make a logical test, for example your selected data higher than 5000.
+ 
+If the test is true we have to add the true value which will be Success and if the test is false then add lost.
+ 
+The if statement automatically decides whether a number is greater or less than our value and outputs it.
+ 
+Then hold the corner and everything will be ready.
+ 
+After this we can use it in a new function.
+ 
+Start type COUNT IF. 
+ 
+We need to enter what we want to count between the quotation marks.
+ 
+With this we will count how many times of the week we had success.
+
+
+
+What is Microsoft Word?
+Microsoft Word is a word processing program used to create documents like letters, reports, resumes, and more.
+ 
+Typing and Formatting Text
+Type your text directly into the document.
+ 
+Use the Home tab to:
+ 
+Change font (Arial, Times New Roman or anything you like).
+ 
+Bold, Italic, or Underline are the easiest  and most used font formating type.
+ 
+Change text color or change the color behind the text.
+ 
+You can move the text whereever you want to
+ 
+Adjust size (12pt, 14pt or even higher).
+ 
+You can place the a title or a new chapter of a book in the middle which separates the text.
+ 
+If you dont need something use strikethrough in the text.
+
+
+In Microsoft Word, "lists" usually refer to bullet points, numbered lists, or multilevel lists. Here's how to use them:
+ 
+Microsoft Word offers powerful list features to help organize information clearly and effectively. Lists are commonly used in documents like reports, to-do lists, resumes, and manuals. The three main types are bulleted lists, numbered lists, and multilevel lists.
+ 
+Bulleted lists are used when the order of items doesn’t matter. They help group related points or ideas, making content easier to read and scan.
+ 
+Numbered lists are ideal when items need to appear in a specific sequence or order. They are used to show steps, priorities, or rankings.
+ 
+Make boxes to mark the impartant content of the text.
+ 
+Benefits of Using Lists.
+Improve readability.
+ 
+Create structure and organization.
+ 
+Emphasize key points.
+ 
+Save time formatting manually.
+
+
+
+
+Microsoft PowerPoint is a presentation software that allows users to create visually engaging slideshows for a variety of purposes—such as business meetings, school projects, training sessions, and more. It's a core part of the Microsoft Office suite and is widely used for both professional and personal presentations.
+ 
+Change font (Arial, Times New Roman or anything you like). 
+Bold, Italic, or Underline are the easiest  and most used font formating type. 
+ 
+Change text color or change the color behind the text. 
+You can move the text whereever you want to 
+Adjust size (12pt, 14pt or even higher). 
+ 
+Common Uses of PowerPoint.
+Business presentations,
+ 
+Classroom lectures and student projects,
+ 
+Marketing pitches,
+ 
+Product demonstrations,
+ 
+Event announcements,
+ 
+Or Power point will automatically create you a new a design on the right side of the screen if you dont have any idea how to present your work.
+ 
+ 
+But if you really want to make it yours add tables or more importantly add your favourite images.
+ 
+I am gonna add my favorite which is kocka istván.
+
+
+
+First you have to select your favorite 
+character of all. Mine is Kocka István.
+ 
+Then select which animation fits the best. I m gonna choose fly in for the first one.
+ 
+Then click the next icon you want to be animated.  I m choosing fade for this.
+ 
+For the cube i selected the bounce effect.
+ 
+The wind wheel made me think which should i choose but in the end zoom was the one.
+ 
+Animations help grab attention, emphasize key points, and make your presentation more engaging and this is one of the most important thing is to make your work your own.
+

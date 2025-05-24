@@ -125,13 +125,16 @@ function MainLayout() {
             </p>
           </section>
         </main>
-        <div className="w-full m-0">
-          <img
-            src="https://i.pinimg.com/originals/b7/21/34/b72134112b54864e4948865375ecbb11.gif"
-            alt="Fire GIF"
-            className="w-full h-auto max-h-32 object-contain"
-          />
-        </div>
+        <div
+          className="w-full m-0"
+          style={{
+            height: '300px', // increased height for bigger fire
+            backgroundImage: "url('https://i.pinimg.com/originals/b7/21/34/b72134112b54864e4948865375ecbb11.gif')",
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: 'center',
+            backgroundSize: 'auto 100%',
+          }}
+        />
         <Footer />
       </div>
     </div>
