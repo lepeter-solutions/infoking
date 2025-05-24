@@ -79,10 +79,24 @@ function MainLayout() {
         <Header />
         <main className="flex-grow flex flex-col justify-center items-center w-full p-4">
           <section id="home" className="text-center max-w-6xl">
-            <h2 className="text-6xl font-bold text-gray-800">ARE YOU FUCKING RETARDED!??!?!!</h2>
-            <p className="mt-6 text-2xl text-gray-600">
+            <h2
+              className="text-6xl font-bold text-red-800"
+              style={{
+                WebkitTextStroke: '2px black',
+                textStroke: '2px black',
+              }}
+            >
+              ARE YOU FUCKING RETARDED!??!?!!
+            </h2>
+            <h3
+            className="mt-6 text-2xl text-yellow-600"
+            style={{
+                WebkitTextStroke: '0.5px black',
+                textStroke: '0.5px black',
+              }}
+            >
               The solution: Infoking - the ultimate platform to help you prepare for your IT studies and exams.
-            </p>
+            </h3>
             <Link to="/curriculum" className="hover:underline group">
               <button
                 className="mt-10 px-12 py-6 text-3xl bg-blue-600 text-white rounded-2xl shadow-2xl transition-all font-bold relative overflow-hidden group-hover:bg-transparent"
@@ -104,13 +118,20 @@ function MainLayout() {
               </button>
             </Link>
           </section>
-          <section id="contact" className="mt-16 text-center max-w-2xl">
+          <section id="contact" className="mt-16 text-center max-w-2xl mx-auto bg-white/80 rounded-2xl shadow-lg p-4">
             <h3 className="text-2xl font-bold text-gray-800">Contact</h3>
             <p className="mt-4 text-gray-600">
               Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline">info@infoking.hu</a>.
             </p>
           </section>
         </main>
+        <div className="w-full m-0">
+          <img
+            src="https://i.pinimg.com/originals/b7/21/34/b72134112b54864e4948865375ecbb11.gif"
+            alt="Fire GIF"
+            className="w-full h-auto max-h-32 object-contain"
+          />
+        </div>
         <Footer />
       </div>
     </div>
