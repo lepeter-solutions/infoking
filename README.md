@@ -1,8 +1,40 @@
-# React + Vite
+# InfoKing 👑👑👑👑
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**InfoKing** is a modern educational web application built with React and Vite. It provides users with access to organized educational content, including video playback, curriculum management, and administrative tools.
 
-Currently, two official plugins are available:
+## Features✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📚 Curriculum overview and topic listing  
+- 🎬 Integrated video player  
+- 🧑‍💼 Admin interface for content management  
+- 🌐 Responsive and user-friendly layout  
+- ⚡ Powered by Vite for fast development and build
+
+## Videos🎞
+
+- Text documentasion in public
+- Voice created in [ElevenLabs](https://elevenlabs.io/app/home)
+- Voice changer in [Lalal.ai](https://www.lalal.ai/)
+
+## Getting Started📝
+
+### Prerequisites🔎
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16 or newer recommended)
+- npm or yarn
+
+### Installation🔽
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/lepeter-solutions/infoking.git
+cd infoking
+npm install
+```
+
+# Author🖍
+- Developed by Lencsés Péter, Galgán Máté, Simon Benjámin
+
