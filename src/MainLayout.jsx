@@ -7,8 +7,8 @@ const carouselImages = [
   "https://media.istockphoto.com/id/879751314/photo/portrait-of-amazed-man-with-laptop-computer-over-gray-background.jpg?s=612x612&w=0&k=20&c=XTYQ_zknzT2G2yvv55bepAZjDkqKHdYfZYaE3e2HO0Q=",
   "https://www.shutterstock.com/image-photo/angry-man-swearing-cursing-against-600nw-2271728711.jpg",
   "https://thumbs.dreamstime.com/b/i-hate-my-computer-14456531.jpg",
-  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
+  "https://media.istockphoto.com/id/468203158/photo/explosion-of-anger.jpg?s=612x612&w=0&k=20&c=fQGySbbr5tPHGLu0QbBL36qI58i7HfnCmXzWyU-BGQk=",
+  "https://previews.123rf.com/images/vchalup/vchalup1704/vchalup170400123/77033381-angry-and-frustrated-man-is-working-with-computer-and-shouting.jpg"
 ];
 
 const SLIDE_DURATION = 1000;
@@ -73,31 +73,39 @@ function MainLayout() {
             aria-hidden="true"
           />
         )}
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10" />
+        <div className="absolute inset-0 backdrop-blur-sm z-10" />
       </div>
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow container mx-auto mt-10 p-4 flex flex-col items-center">
-          <section id="home" className="text-center max-w-2xl">
-            <h2 className="text-4xl font-bold text-gray-800">Welcome to Infoking</h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Your ultimate resource for Hungarian érettségi IT preparations.
+        <main className="flex-grow flex flex-col justify-center items-center w-full p-4">
+          <section id="home" className="text-center max-w-6xl">
+            <h2 className="text-6xl font-bold text-gray-800">ARE YOU FUCKING RETARDED!??!?!!</h2>
+            <p className="mt-6 text-2xl text-gray-600">
+              The solution: Infoking - the ultimate platform to help you prepare for your IT studies and exams.
             </p>
-            <Link to="/curriculum" className="hover:underline">
-              <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
-                Get Started
+            <Link to="/curriculum" className="hover:underline group">
+              <button
+                className="mt-10 px-12 py-6 text-3xl bg-blue-600 text-white rounded-2xl shadow-2xl transition-all font-bold relative overflow-hidden group-hover:bg-transparent"
+                style={{
+                  backgroundImage: 'none',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <span className="relative z-10">I want to be less incompetent!</span>
+                <span
+                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    backgroundImage: "url('https://www.icegif.com/wp-content/uploads/2023/08/icegif-179.gif')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
               </button>
             </Link>
           </section>
-          <section id="about" className="mt-16 text-center max-w-2xl">
-            <h3 className="text-2xl font-bold text-gray-800">About Infoking</h3>
-            <p className="mt-4 text-gray-600">
-              Infoking is designed to help students prepare for their IT studies and exams with
-              comprehensive resources and guides.
-            </p>
-          </section>
           <section id="contact" className="mt-16 text-center max-w-2xl">
-            <h3 className="text-2xl font-bold text-gray-800">Contact Us</h3>
+            <h3 className="text-2xl font-bold text-gray-800">Contact</h3>
             <p className="mt-4 text-gray-600">
               Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline">info@infoking.hu</a>.
             </p>
