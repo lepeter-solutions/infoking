@@ -5,70 +5,76 @@ import Footer from './components/Footer';
 
 const carouselImages = [
   "https://media.istockphoto.com/id/879751314/photo/portrait-of-amazed-man-with-laptop-computer-over-gray-background.jpg?s=612x612&w=0&k=20&c=XTYQ_zknzT2G2yvv55bepAZjDkqKHdYfZYaE3e2HO0Q=",
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+  "https://www.shutterstock.com/image-photo/angry-man-swearing-cursing-against-600nw-2271728711.jpg",
+  "https://thumbs.dreamstime.com/b/i-hate-my-computer-14456531.jpg",
   "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
   "https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
 ];
 
-const FADE_DURATION = 1000;
-const INTERVAL = 12000;
+const SLIDE_DURATION = 1000;
+const INTERVAL = 5000;
 
 function MainLayout() {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState(null);
-  const [isFading, setIsFading] = useState(false);
+  const [next, setNext] = useState(null);
+  const [isSliding, setIsSliding] = useState(false);
+  const [slidePhase, setSlidePhase] = useState(false);
   const timeoutRef = useRef();
 
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
-      triggerFade((current + 1) % carouselImages.length);
+      startSlide((current + 1) % carouselImages.length);
     }, INTERVAL);
     return () => clearTimeout(timeoutRef.current);
   }, [current]);
 
-  const triggerFade = (nextIdx) => {
-    setPrev(current);
-    setIsFading(true);
+  useEffect(() => {
+    if (next !== null) {
+      requestAnimationFrame(() => setSlidePhase(true));
+    }
+  }, [next]);
+
+  const startSlide = (nextIdx) => {
+    setNext(nextIdx);
+    setIsSliding(true);
+    setSlidePhase(false);
     setTimeout(() => {
       setCurrent(nextIdx);
-      setIsFading(false);
-      setPrev(null);
-    }, FADE_DURATION);
-  };
-
-  const goTo = (idx) => {
-    if (idx !== current && !isFading) {
-      clearTimeout(timeoutRef.current);
-      triggerFade(idx);
-    }
+      setIsSliding(false);
+      setNext(null);
+      setSlidePhase(false);
+    }, SLIDE_DURATION);
   };
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {prev !== null && (
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div
-          className="absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `url(${carouselImages[prev]})`,
+            backgroundImage: `url(${carouselImages[current]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: isFading ? 1 : 0,
+            zIndex: 1,
+            transition: 'none'
           }}
           aria-hidden="true"
         />
-      )}
-      <div
-        className="absolute inset-0 z-0 transition-opacity duration-1000 pointer-events-none"
-        style={{
-          backgroundImage: `url(${carouselImages[current]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: isFading ? 0 : 1,
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 z-10" />
+        {next !== null && (
+          <div
+            className={`absolute inset-0 transition-transform duration-[${SLIDE_DURATION}ms]`}
+            style={{
+              backgroundImage: `url(${carouselImages[next]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              transform: slidePhase ? 'translateX(0%)' : 'translateX(100%)',
+              zIndex: 2,
+            }}
+            aria-hidden="true"
+          />
+        )}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10" />
+      </div>
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow container mx-auto mt-10 p-4 flex flex-col items-center">
@@ -96,17 +102,6 @@ function MainLayout() {
               Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline">info@infoking.hu</a>.
             </p>
           </section>
-          <div className="flex justify-center mt-10 space-x-2">
-            {carouselImages.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goTo(idx)}
-                className={`w-3 h-3 rounded-full ${current === idx ? 'bg-blue-600' : 'bg-gray-400'}`}
-                aria-label={`Go to slide ${idx + 1}`}
-                disabled={isFading}
-              />
-            ))}
-          </div>
         </main>
         <Footer />
       </div>
