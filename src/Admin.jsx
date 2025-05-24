@@ -11,13 +11,19 @@ function Admin() {
     videoDescription: '',
     videoYoutubeUrl: '',
     classPath: '',
+    alternativeVoiceLines: false,
+    darthVaderYoutubeUrl: '',
+    simpsonsYoutubeUrl: '',
   });
 
   const [deleteId, setDeleteId] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -43,6 +49,9 @@ function Admin() {
           videoDescription: '',
           videoYoutubeUrl: '',
           classPath: '',
+          alternativeVoiceLines: false,
+          darthVaderYoutubeUrl: '',
+          simpsonsYoutubeUrl: '',
         });
       } else {
         alert('Failed to add data. Please try again.');
@@ -118,7 +127,7 @@ function Admin() {
               <option value="SUM Function">SUM Function</option>
               <option value="VLOOKUP">VLOOKUP</option>
               <option value="Pivot Tables">Pivot Tables</option>
-              <option value="DATE Function">DATE Function</option> {/* New topic added */}
+              <option value="DATE Function">DATE Function</option>
             </select>
           </div>
           <div>
@@ -197,6 +206,44 @@ function Admin() {
               required
             />
           </div>
+          <div>
+            <label className="inline-flex items-center font-bold text-blue-700">
+              <input
+                type="checkbox"
+                name="alternativeVoiceLines"
+                checked={formData.alternativeVoiceLines}
+                onChange={handleChange}
+                className="mr-2"
+              />
+              Alternative Voice Lines?
+            </label>
+          </div>
+          {formData.alternativeVoiceLines && (
+            <>
+              <div>
+                <label className="block font-bold text-blue-700">Darth Vader YouTube URL</label>
+                <input
+                  type="url"
+                  name="darthVaderYoutubeUrl"
+                  value={formData.darthVaderYoutubeUrl}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded text-blue-700"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-blue-700">Simpsons YouTube URL</label>
+                <input
+                  type="url"
+                  name="simpsonsYoutubeUrl"
+                  value={formData.simpsonsYoutubeUrl}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded text-blue-700"
+                  required
+                />
+              </div>
+            </>
+          )}
           <button
             type="submit"
             className="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
