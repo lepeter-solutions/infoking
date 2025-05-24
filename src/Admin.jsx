@@ -128,6 +128,11 @@ function Admin() {
               <option value="VLOOKUP">VLOOKUP</option>
               <option value="Pivot Tables">Pivot Tables</option>
               <option value="DATE Function">DATE Function</option>
+              <option value="Animations">Animations</option>
+              <option value="Introduction">Introduction</option>
+              <option value="Default commands">Default commands</option>
+              <option value="If functions">If functions</option>
+              <option value="SUM, MIN, MAX, AVG functions">SUM, MIN, MAX, AVG functions</option>
             </select>
           </div>
           <div>
