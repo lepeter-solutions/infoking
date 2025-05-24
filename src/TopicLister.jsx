@@ -42,6 +42,14 @@ function TopicLister() {
         <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-600">
           {category.replace('-', ' ')} - {topic.replace('-', ' ')}
         </h1>
+        <div className="flex justify-center mt-6">
+          <button
+            className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 font-semibold transition"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
         {loading ? (
           <p className="mt-4 text-center text-gray-500">Loading curriculum items...</p>
         ) : curriculumItems.length > 0 ? (
