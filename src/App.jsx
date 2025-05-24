@@ -5,7 +5,7 @@ import Admin from './Admin.jsx';
 import MainLayout from './MainLayout.jsx';
 import TopicLister from './TopicLister.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
-import ContactPage from './ContactPage.jsx'; // <-- Add this import
+import ContactPage from './ContactPage.jsx';
 
 function App() {
   return (

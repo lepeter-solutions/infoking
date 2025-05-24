@@ -7,10 +7,9 @@ function VideoPlayer() {
   const { category, topic, classPath } = useParams();
   const [videoData, setVideoData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [voiceUrl, setVoiceUrl] = useState(null); // For switching video
+  const [voiceUrl, setVoiceUrl] = useState(null);
 
   useEffect(() => {
-    // Fetch the video data for the given classPath
     const fetchVideo = async () => {
       try {
         const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
@@ -19,7 +18,7 @@ function VideoPlayer() {
           (item) => item.classPath === classPath
         );
         setVideoData(found);
-        setVoiceUrl(null); // Reset on new video
+        setVoiceUrl(null);
       } catch (error) {
         setVideoData(null);
       } finally {
@@ -29,7 +28,6 @@ function VideoPlayer() {
     fetchVideo();
   }, [classPath]);
 
-  // Helper to get the correct YouTube embed URL
   const getEmbedUrl = (url) =>
     url ? url.replace('watch?v=', 'embed/') : '';
 

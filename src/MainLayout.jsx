@@ -48,7 +48,6 @@ function MainLayout() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Carousel background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -76,7 +75,6 @@ function MainLayout() {
         )}
         <div className="absolute inset-0 backdrop-blur-sm z-10" />
       </div>
-      {/* Main content */}
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow flex flex-col justify-center items-center w-full px-2 sm:px-4">
@@ -146,7 +144,6 @@ function MainLayout() {
             </p>
           </section>
         </main>
-        {/* Responsive fire GIF bar */}
         <div
           className="w-full m-0 h-20 sm:h-32 lg:h-44"
           style={{

@@ -3,30 +3,27 @@ import { useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Utility function to slugify strings
 const slugify = (text) => {
   return text
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/[^\w-]+/g, ''); // Remove all non-word characters
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '');
 };
 
 function Curriculum() {
   const [categories, setCategories] = useState([]);
   const [curriculumTopics, setCurriculumTopics] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null); // Manage selected category locally
-  const navigate = useNavigate(); // For navigation
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch categories from the API
     const fetchCategories = async () => {
       try {
         const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
         const data = await response.json();
 
-        // Extract unique categories
         const uniqueCategories = [...new Set(data.map((item) => item.category))];
         setCategories(uniqueCategories);
       } catch (error) {
@@ -38,13 +35,11 @@ function Curriculum() {
   }, []);
 
   useEffect(() => {
-    // Fetch curriculum topics for the selected category
     const fetchCurriculumTopics = async () => {
       try {
         const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
         const data = await response.json();
 
-        // Filter topics by the selected category
         const filteredTopics = data.filter((item) =>
           item.category.toLowerCase() === selectedCategory?.toLowerCase()
         );
@@ -59,7 +54,6 @@ function Curriculum() {
     }
   }, [selectedCategory]);
 
-  // Group topics by their name and count the number of videos
   const groupedTopics = curriculumTopics.reduce((acc, topic) => {
     if (!acc[topic.topic]) {
       acc[topic.topic] = { count: 0, topicName: topic.topic };
@@ -81,7 +75,7 @@ function Curriculum() {
                 categories.map((category, index) => (
                   <li key={index}>
                     <button
-                      onClick={() => setSelectedCategory(category)} // Update selected category
+                      onClick={() => setSelectedCategory(category)}
                       className={`block w-full text-left p-2 hover:bg-gray-700 rounded ${
                         selectedCategory === category ? 'bg-gray-700' : ''
                       }`}
@@ -117,7 +111,7 @@ function Curriculum() {
                       className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                       onClick={() =>
                         navigate(`/${slugify(selectedCategory)}/${slugify(group.topicName)}`)
-                      } // Navigate to slugified category/topic
+                      }
                     >
                       Learn it
                     </button>

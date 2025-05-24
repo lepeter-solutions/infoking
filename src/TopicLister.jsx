@@ -13,13 +13,11 @@ function TopicLister() {
   const location = useLocation();
 
   useEffect(() => {
-    // Fetch data from the API based on category and topic
     const fetchCurriculumItems = async () => {
       try {
         const response = await fetch('https://retoolapi.dev/yHbocP/infoking');
         const data = await response.json();
 
-        // Filter data based on category and topic
         const filteredItems = data.filter(
           (item) =>
             item.category.toLowerCase() === category.replace('-', ' ').toLowerCase() &&
@@ -28,11 +26,9 @@ function TopicLister() {
 
         setCurriculumItems(filteredItems);
 
-        // Extract unique categories for sidebar
         const uniqueCategories = [...new Set(data.map((item) => item.category))];
         setCategories(uniqueCategories);
 
-        // Extract topics for the current category
         const topics = data
           .filter((item) => item.category.toLowerCase() === category.replace('-', ' ').toLowerCase())
           .map((item) => item.topic);
@@ -47,7 +43,6 @@ function TopicLister() {
     fetchCurriculumItems();
   }, [category, topic]);
 
-  // Utility to slugify topic for URL
   const slugify = (text) =>
     text
       .toString()
@@ -73,9 +68,8 @@ function TopicLister() {
                         cat === category.replace('-', ' ') ? 'bg-gray-700 font-bold' : ''
                       }`}
                     >
-                      {cat}
+                      {cat} 
                     </button>
-                    {/* Show topics for the selected category */}
                     {cat === category.replace('-', ' ') && topicsByCategory.length > 0 && (
                       <ul className="ml-4 mt-2 space-y-1">
                         {topicsByCategory.map((t, i) => (
