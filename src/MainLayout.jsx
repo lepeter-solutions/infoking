@@ -48,6 +48,7 @@ function MainLayout() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Carousel background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -75,22 +76,23 @@ function MainLayout() {
         )}
         <div className="absolute inset-0 backdrop-blur-sm z-10" />
       </div>
+      {/* Main content */}
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow flex flex-col justify-center items-center w-full p-4">
-          <section id="home" className="text-center max-w-6xl">
+        <main className="flex-grow flex flex-col justify-center items-center w-full px-2 sm:px-4">
+          <section id="home" className="text-center w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-6xl mx-auto">
             <h2
-              className="text-6xl font-bold text-red-800"
-              style={{
-                WebkitTextStroke: '2px black',
-                textStroke: '2px black',
-              }}
-            >
-              ARE YOU FUCKING RETARDED!??!?!!
-            </h2>
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-red-800"
+                style={{
+                  WebkitTextStroke: '2px black',
+                  textStroke: '2px black',
+                }}
+              >
+                ARE YOU FUCKING RETARDED!??!?!!
+              </h2>
             <h3
-            className="mt-6 text-2xl text-yellow-600"
-            style={{
+              className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-yellow-600"
+              style={{
                 WebkitTextStroke: '0.5px black',
                 textStroke: '0.5px black',
               }}
@@ -99,7 +101,7 @@ function MainLayout() {
             </h3>
             <Link to="/curriculum" className="hover:underline group">
               <button
-                className="mt-10 px-12 py-6 text-3xl bg-blue-600 text-white rounded-2xl shadow-2xl transition-all font-bold relative overflow-hidden group-hover:bg-transparent"
+                className="mt-8 sm:mt-10 px-6 sm:px-12 py-3 sm:py-6 text-xl sm:text-2xl md:text-3xl bg-blue-600 text-white rounded-2xl shadow-2xl transition-all font-bold relative overflow-hidden group-hover:bg-transparent"
                 style={{
                   backgroundImage: 'none',
                   backgroundSize: 'cover',
@@ -118,17 +120,17 @@ function MainLayout() {
               </button>
             </Link>
           </section>
-          <section id="contact" className="mt-16 text-center max-w-2xl mx-auto bg-white/80 rounded-2xl shadow-lg p-4">
-            <h3 className="text-2xl font-bold text-gray-800">Contact</h3>
+          <section id="contact" className="mt-10 sm:mt-16 text-center max-w-md sm:max-w-xl md:max-w-2xl mx-auto bg-white/80 rounded-2xl shadow-lg p-4 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Contact</h3>
             <p className="mt-4 text-gray-600">
               Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline">info@infoking.hu</a>.
             </p>
           </section>
         </main>
+        {/* Responsive fire GIF bar */}
         <div
-          className="w-full m-0"
+          className="w-full m-0 h-20 sm:h-32 lg:h-44"
           style={{
-            height: '300px', // increased height for bigger fire
             backgroundImage: "url('https://i.pinimg.com/originals/b7/21/34/b72134112b54864e4948865375ecbb11.gif')",
             backgroundRepeat: 'repeat-x',
             backgroundPosition: 'center',
