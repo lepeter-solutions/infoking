@@ -12,7 +12,7 @@
 
 ## Videos🎞
 
-- Text documentasion in public
+- Text documentation in public
 - Voice created in [ElevenLabs](https://elevenlabs.io/app/home)
 - Voice changer in [Lalal.ai](https://www.lalal.ai/)
 
