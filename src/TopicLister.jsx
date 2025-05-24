@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -7,6 +7,8 @@ function TopicLister() {
   const { category, topic } = useParams(); // Get category and topic from the URL
   const [curriculumItems, setCurriculumItems] = useState([]); // State to store curriculum items
   const [loading, setLoading] = useState(true); // State to handle loading
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Fetch data from the API based on category and topic
@@ -50,14 +52,12 @@ function TopicLister() {
                 <p className="text-gray-700 mt-2">{item.videoDescription}</p>
                 <p className="text-gray-500 mt-2">Class Number: {item.classNumber}</p>
                 <p className="text-gray-500">Upload Date: {item.videoUploadDate}</p>
-                <a
-                  href={item.videoYoutubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
                   className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  onClick={() => navigate(`${location.pathname}/${item.classPath}`)}
                 >
-                  Watch Video
-                </a>
+                  Watch it
+                </button>
               </div>
             ))}
           </div>
