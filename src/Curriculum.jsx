@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // Utility function to slugify strings
 const slugify = (text) => {
@@ -68,18 +70,7 @@ function Curriculum() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-blue-600 text-white p-4">
-        <div className="w-full mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Infoking</h1>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><a href="/" className="hover:underline">Home</a></li>
-              <li><a href="/about" className="hover:underline">About</a></li>
-              <li><a href="/contact" className="hover:underline">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex flex-grow flex-col md:flex-row">
         <aside className="w-full md:w-64 bg-gray-800 text-white flex-shrink-0">
@@ -144,9 +135,7 @@ function Curriculum() {
         </div>
       </main>
 
-      <footer className="bg-gray-800 text-white text-center p-4">
-        <p>&copy; 2023 Infoking. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
