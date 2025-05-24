@@ -120,10 +120,29 @@ function MainLayout() {
               </button>
             </Link>
           </section>
-          <section id="contact" className="mt-10 sm:mt-16 text-center max-w-md sm:max-w-xl md:max-w-2xl mx-auto bg-white/80 rounded-2xl shadow-lg p-4 sm:p-8">
+          <section
+            id="contact"
+            className="mt-10 sm:mt-16 text-center max-w-md sm:max-w-xl md:max-w-2xl mx-auto bg-white/80 rounded-2xl shadow-lg p-4 sm:p-8 animate-spin-slow"
+            style={{
+              animation: 'spin 4s linear infinite'
+            }}
+          >
             <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Contact</h3>
-            <p className="mt-4 text-gray-600">
-              Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline">info@infoking.hu</a>.
+            <p className="mt-4 text-gray-600 flex items-center overflow-hidden relative h-8">
+              <span
+                className="whitespace-nowrap font-bold"
+                style={{
+                  display: 'inline-block',
+                  animation: 'marquee 8s linear infinite',
+                  background: 'linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                }}
+              >
+                Have questions? Reach out to us at <a href="mailto:info@infoking.hu" className="text-blue-600 hover:underline" style={{ color: 'inherit', textDecoration: 'underline' }}>info@infoking.hu</a>.
+              </span>
             </p>
           </section>
         </main>
@@ -139,6 +158,20 @@ function MainLayout() {
         />
         <Footer />
       </div>
+      <style>
+{`
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin 4s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(100%);}
+  100% { transform: translateX(-100%);}
+}
+`}
+      </style>
     </div>
   );
 }
