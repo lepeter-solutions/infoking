@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function TopicLister() {
   const { category, topic } = useParams(); // Get category and topic from the URL
@@ -33,9 +35,7 @@ function TopicLister() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-blue-600 text-white p-4">
-        <h1 className="text-2xl font-bold">Infoking</h1>
-      </header>
+      <Header />
       <main className="flex-grow container mx-auto mt-6 md:mt-10 p-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-600">
           {category.replace('-', ' ')} - {topic.replace('-', ' ')}
@@ -67,9 +67,7 @@ function TopicLister() {
           </p>
         )}
       </main>
-      <footer className="bg-gray-800 text-white text-center p-4">
-        <p>&copy; 2023 Infoking. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
