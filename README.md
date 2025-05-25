@@ -36,5 +36,5 @@ npm install
 ```
 
 # Author🖍
-- Developed by Lencsés Péter, Galgán Máté, Simon Benjámin
+- Developed by Lencsés Péter, Galgán Máté, Simon Benjámin, Desk
 
